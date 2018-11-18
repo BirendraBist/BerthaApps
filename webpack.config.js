@@ -1,7 +1,7 @@
 /*
   A webpack configuration file designed
   for webdevelopment with typescript and scss
-  by Ebbe Vang, evang.dk
+  by Birendra,anina ,rushika,hussein
 */
 
 const path = require('path');
@@ -9,7 +9,11 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 module.exports = {
   // which files should webpack watch and transpile
-  entry: ['./src/index.htm', './src/scss/styles.scss', './src/js/index.ts'],
+  entry: {
+    index:['./src/index.htm', './src/scss/styles.scss', './src/js/index.ts'],
+    AlldataView:['./src/AlldataView.html','./src/scss/AlldataView.scss','./src/js/AlldataView.ts'],
+    AddDetails:['./src/AddDetails.html','./src/scss/AddDetails.scss','./src/js/AddDetails.ts']
+},
   module: {
     // rules webpack should follow when watching...
     rules: [
@@ -81,6 +85,15 @@ module.exports = {
       files: ["*.htm", "*.html", "scss/*.*"],
       index: 'index.htm',
       server: { baseDir: ['dist'] }
-    })
+    }),
+      // new BrowserSyncPlugin({
+        
+      //   host: 'localhost',
+      //   reload: true,
+      //   port: 3000,
+      //   files: ["*.htm", "*.html", "scss/*.*"],
+      //   index: 'viewtable.htm',
+      //   server: { baseDir: ['dist'] }
+      // })
   ]
 };
