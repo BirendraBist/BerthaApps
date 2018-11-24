@@ -1,44 +1,47 @@
-// import axios ,{
-//     AxiosResponse,
-//     AxiosError
-// } from "../../node_modules";
+import axios ,{
+    AxiosResponse,
+    AxiosError
+} from "../../node_modules";
  
-// interface IUser {
-//     id: number;
-//     userName: string;
-//     userPassword: string;    
-// }
-// interface IHealth{
-//     healthId:number;
-//     dateTime:Date;
-//     location :string;
-//     bodyTemperature:number;
-//     upperBloodpressure:number;
-//     lowerBloodpressure:number;
-//     heartBeatpersecond: number;
-//     userId:number;
-// }
-// let gethealth :HTMLButtonElement=<HTMLButtonElement>document.getElementById("getAllbtn");
-// gethealth.addEventListener("click",getAllhealth);
-// function getAllhealth(): void{
-//     let healthOutput: HTMLDivElement = <HTMLDivElement>document.getElementById("healthOutput");
-//     let uri: string = " https://berthaapplication20181120122306.azurewebsites.net/api/health"; 
+interface IUser {
+    healthId: number;
+    userName: string;
+    userPassword: string;
+    userType:string;  
+
+}
+interface IHealth{
+    id:number;
+    date:Date;
+    time:string;
+    location :string;
+    bodyTemperature:number;
+    upperBloodpressure:number;
+    lowerBloodpressure:number;
+    heartBeatpersecond: number;
+    userId:number;
+}
+let gethealth :HTMLButtonElement=<HTMLButtonElement>document.getElementById("getAllbtn");
+gethealth.addEventListener("click",getAllhealth);
+function getAllhealth(): void{
+    let healthOutput: HTMLDivElement = <HTMLDivElement>document.getElementById("healthOutput");
+    let uri: string = "https://berthawebappproject20181124042559.azurewebsites.net/api/healthrecords"; 
    
-//     axios.get<IHealth>(uri)
-//     .then(function(response:AxiosResponse<IHealth[]>):void{
-//         let result:string="<table><tr><th>HealthId</th><th>Date</th><th>Location</th><th>Bodytemperature</th><th>UpperBloodPressure</th><th>LowBloodPressure</th><th>HeartBeat</th><th>UserId</th>"
-//         response.date.foreach((hltD:IHealth)=>{
-//             result +="<tr><td>"+hltD.healthId+"</td><td>"+hltD.dateTime+"</td><td>"+hltD.location+"</td><td>"+hltD.bodyTemperature+"</td><td>"+hltD.upperBloodpressure+"</td><td>"+hltD.lowerBloodpressure+"</td><td>"+hltD.heartBeatpersecond+"</td><td>"+ hltD.userId+"</td></tr>"
-//      });
-//      result+="</table>"
-//      healthOutput.innerHTML=result;
-//     })
-//     .catch (function (error: AxiosError): void {
-//         if (error.response) {
-//             healthOutput.innerHTML = error;}
-//         else {healthOutput.innerHTML = error;}
-//    })
-// }
+    axios.get<IHealth>(uri)
+    .then(function(response:AxiosResponse<IHealth[]>):void{
+        let result:string="<table><tr><th>HealthId</th><th>Date</th><th>Time</th><th>Location</th><th>Bodytemperature</th><th>UpperBloodPressure</th><th>LowBloodPressure</th><th>HeartBeat</th><th>UserId</th>"
+        response.date.foreach((hltD:IHealth)=>{
+            result +="<tr><td>"+hltD.id+"</td><td>"+hltD.date+"</td><td>"+hltD.time+"</td><td>"+hltD.location+"</td><td>"+hltD.bodyTemperature+"</td><td>"+hltD.upperBloodpressure+"</td><td>"+hltD.lowerBloodpressure+"</td><td>"+hltD.heartBeatpersecond+"</td><td>"+ hltD.userId+"</td></tr>"
+     });
+     result+="</table>"
+     healthOutput.innerHTML=result;
+    })
+    .catch (function (error: AxiosError): void {
+        if (error.response) {
+            healthOutput.innerHTML = error;}
+        else {healthOutput.innerHTML = error;}
+   })
+}
 //     let getByid: HTMLButtonElement = <HTMLButtonElement>document.getElementById("getByid");
 //     getByid.addEventListener("click", gethealthdatabyid);
 
@@ -63,37 +66,34 @@
 //         else {healthOutputbyid.innerHTML = error;}
 //    })
 // }
-import axios, {
-    AxiosResponse,
-    AxiosError,
-} from "../../node_modules/axios/index";
 
-import { json2table100 } from "./generictable";
 
-interface IUser {
-    id: number;
-    userName: string;
-    userPassword: string;    
-}
-interface IHealth{
-    healthId:number;
-    dateTime:Date;
-    location :string;
-    bodyTemperature:number;
-    upperBloodpressure:number;
-    lowerBloodpressure:number;
-    heartBeatpersecond: number;
-    userId:number;
-}
-axios.get<IUser[]>("https://berthaapplication20181120122306.azurewebsites.net/api/health")
-    .then(function (response: AxiosResponse<IUser[]>): void {
-        let data: IUser[] = response.data;
-        console.log(data);
-        let result: string = json2table100(response.data);
-        console.log(result);
-        let element: HTMLDivElement = <HTMLDivElement>document.getElementById("content");
-        element.innerHTML = result;
-    })
-    .catch(function (error: AxiosError): void {
-        console.log(JSON.stringify(error));
-    });
+// import { json2table100 } from "./generictable";
+
+// interface IUser {
+//     id: number;
+//     userName: string;
+//     userPassword: string;    
+// }
+// interface IHealth{
+//     healthId:number;
+//     dateTime:Date;
+//     location :string;
+//     bodyTemperature:number;
+//     upperBloodpressure:number;
+//     lowerBloodpressure:number;
+//     heartBeatpersecond: number;
+//     userId:number;
+// }
+// axios.get<IUser[]>("https://berthaapplication20181120122306.azurewebsites.net/api/health")
+//     .then(function (response: AxiosResponse<IUser[]>): void {
+//         let data: IUser[] = response.data;
+//         console.log(data);
+//         let result: string = json2table100(response.data);
+//         console.log(result);
+//         let element: HTMLDivElement = <HTMLDivElement>document.getElementById("content");
+//         element.innerHTML = result;
+//     })
+//     .catch(function (error: AxiosError): void {
+//         console.log(JSON.stringify(error));
+//     });

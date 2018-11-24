@@ -80,20 +80,12 @@ module.exports = {
       // browse to http://localhost:3000/ during development,
       // ./public directory is being served
       host: 'localhost',
+      publicPath:'https://berthawebappproject20181124042559.azurewebsites.net',
       reload: true,
-      port: 3000,
+      //port: 3000,
       files: ["*.htm", "*.html", "scss/*.*"],
       index: 'index.htm',
       server: { baseDir: ['dist'] }
-    }),
-      // new BrowserSyncPlugin({
-        
-      //   host: 'localhost',
-      //   reload: true,
-      //   port: 3000,
-      //   files: ["*.htm", "*.html", "scss/*.*"],
-      //   index: 'viewtable.htm',
-      //   server: { baseDir: ['dist'] }
-      // })
+    })     
   ]
 };
