@@ -79,7 +79,7 @@ module.exports = {
     new BrowserSyncPlugin({
       // browse to http://localhost:3000/ during development,
       // ./public directory is being served
-      host: 'localhost',
+      //host: 'localhost',
       publicPath:'https://berthawebappproject20181124042559.azurewebsites.net',
       reload: true,
       //port: 3000,
