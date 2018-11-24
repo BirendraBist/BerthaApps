@@ -1,4 +1,4 @@
-body{background:url("../Assets/backgrounds.jpg")};
+body{background:url("../Assets/2ndbackground.jpg")};
 #top-logo{
   display: inline;
   }
@@ -16,6 +16,8 @@ body{background:url("../Assets/backgrounds.jpg")};
   vertical-align: top;
   margin-top:.5em;
   margin-left: 1em;
+  color: white;
+  
 }
 #container{
     display: grid;
@@ -27,10 +29,11 @@ body{background:url("../Assets/backgrounds.jpg")};
   grid-column: 2/3;
   width: 28em;
   margin: 0 auto;
-  background-color: rgba($color: white, $alpha: 0.5);
+  background-color: rgba($color: rgb(24, 23, 23), $alpha: 0.5);
   height: 31em; 
   margin: 30% auto; 
-  border-radius: 3.5em;   
+  border-radius: 3.5em;  
+  color: white; 
   }
   #signin-logo{
   margin: auto;
@@ -86,4 +89,7 @@ body{background:url("../Assets/backgrounds.jpg")};
     margin-left: 1em;
     height: 32px;
     width:75px;
+    border-radius: 2em;
+    background-color: rgb(24, 23, 23);
+        
   }
