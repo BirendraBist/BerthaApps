@@ -26,9 +26,9 @@ function logIn(): void {
             if (response.data !== null)
              {
                 if(response.data.typeOfUser==="A")
-                window.location.href = 'https://berthawebappproject20181124042559.azurewebsites.net/AlldataView.html';
+                window.location.href = 'https://berthathings.azurewebsites.net/AlldataView.html';
                 else if (response.data.typeOfUser === "B")
-                window.location.href = 'https://berthawebappproject20181124042559.azurewebsites.net/HealthandEnvironment.html';
+                window.location.href = 'https://berthathings.azurewebsites.net/HealthandEnvironment.html';
              }
             else              
                alert("Wrong username and password")
